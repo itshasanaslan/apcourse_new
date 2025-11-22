@@ -1,10 +1,45 @@
 package week_03;
 
 import java.util.Scanner;
-import javax.sound.midi.SysexMessage;
 
 public class App {
+
     public static void main(String[] args) {
+
+        /*
+         * 
+         * // an insatnce StudentProfile
+         * StudentProfile profile1 = new StudentProfile("Arda", "Ekin", "id3282", false,
+         * 3.9);
+         * // int x = 3;
+         * 
+         * // changer(profile1, x);
+         * 
+         * // System.out.println(x);
+         * profile1.info();
+         * StudentProfile profile2 = profile1;
+         * System.out.println("Profile 2 is below:");
+         * profile2.gpa = 0;
+         * profile1.info();
+         * 
+         */
+        StudentProfile profile1 = new StudentProfile("Arda", "Ekin", "id3282", false, 3.9);
+        StudentProfile profile2 = new StudentProfile("Derin", "asaasas", "id:398983");
+
+        // profile1.info();
+        profile1.info(2.3);
+        // StudentProfile profile2 = null;
+
+    }
+
+    public static void changer(StudentProfile student, int x) {
+        // primitives are passed by value
+        // objects are passed by reference
+        student.gpa = 2;
+        x = 5;
+    }
+
+    public static void mondaySession() {
 
         int x = 64;
         double sqrtOf64 = Math.sqrt(x);
