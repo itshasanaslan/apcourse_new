@@ -23,6 +23,7 @@ public class App {
          * profile1.info();
          * 
          */
+
         StudentProfile profile1 = new StudentProfile("Arda", "Ekin", "id3282", false, 3.9);
         StudentProfile profile2 = new StudentProfile("Derin", "asaasas", "id:398983");
 
