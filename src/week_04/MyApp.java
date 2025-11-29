@@ -1,12 +1,71 @@
 package week_04;
 
 import java.util.Scanner;
-import javax.crypto.MacSpi;
 
 public class MyApp {
 
     public static void main(String[] args) {
-        // OOP
+       
+
+        // and && &
+        // or
+        // not !
+        // 1.5 1.8
+        // max age 15
+        // your parent allowed
+        int age = 16;
+        boolean isOlderThan = age >= 18;
+        boolean hasParentPermission = true;
+
+        // compound operators
+        //boolean canJoinTheTrip = isYoungerThan15 && hasParentPermission;
+        boolean canJoinTheTrip = isOlderThan || hasParentPermission;
+        System.out.println("Student can join the trip: " + canJoinTheTrip);     }
+
+
+    public static void booleanIntro(){
+         // control structures
+
+        // scanenr object reading age from the user
+        int age = 19;
+        boolean canDrive = age >= 18; // true
+
+        String apple = "apple";
+        String banana = "banana";
+
+       int value =  apple.compareTo(banana); // -1
+
+        boolean doesAppleComeFirst = value < 0;
+
+        boolean a = true;
+        boolean b = false;
+
+        boolean result = a != b;
+
+        int die1 = rollADice();
+        int die2 = rollADice();
+        boolean isDouble = die1 == die2;
+        System.out.println("Rolls: " + die1 + ", " + die2);
+        System.out.println("Doubles? " + isDouble);
+
+        int num1 = 953;
+        boolean isEven = (num1 % 2 == 0);
+        boolean isOdd = (num1 % 2 == 1);
+        System.out.println("Is number even: " + isEven);
+        System.out.println("Is number odd: " + isOdd);
+    }
+
+    public static int rollADice(){
+    int min = 1;
+    int max = 6;
+    int x = (int) (Math.random() * (max-min+1))+1;
+    return x;
+}
+
+
+
+    public static void tempp() {
+         // OOP
         // STrings are immutable
         String text1 = "Hello"; // string pool
         String text2 = "Hello"; // string pool
@@ -39,11 +98,21 @@ public class MyApp {
 
         String name1 = "mehmet";
         String name2 = "mehmet";
+    
         // Java Quick Reference Sheet for ap exam
         int x = name1.compareTo(name2);
         boolean comesFirst = x < 0;
         System.out.println("The name " + name1 + " comes first: " + comesFirst);
 
+        //substring
+        // length
+        //indexOf
+        //toLower
+        //toUpper
+        // compareTo
+
+        // Apple Banana
+        // apple.compareTo(banana) 
     }
 
     public static String nameAdjuster(String fullname) {
