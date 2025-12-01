@@ -1,0 +1,13 @@
+Automated Grader With Exceptions and Bonuses
+Students ask for:
+•	Student’s raw score (0–100)
+•	Student’s extra credit (0–10)
+•	Whether they submitted on time (Y or N)
+Then compute:
+•	Add extra credit only if submitted on time
+•	Cap total at 100
+•	Apply grade boundaries (A, B, C, D, F) with nested ifs
+•	Special rules:
+o	If the score is exactly 100 → “A+”
+o	If the student was late but got ≥ 90 → drop one letter grade
+o	If score < 50 → “F (needs major improvement)”
