@@ -6,28 +6,44 @@ public class MyApp {
 
     public static void main(String[] args) {
 
-        Scanner sc = new Scanner(System.in);
+        /*
+         * Scanner sc = new Scanner(System.in);
+         * 
+         * int times = -1;
+         * 
+         * while (times < 1) {
+         * System.out.print("How many numbers would you like to enter: ");
+         * times = sc.nextInt();
+         * }
+         * 
+         * int max = Integer.MIN_VALUE;
+         * 
+         * for (int i = 1; i <= times; i++) {
+         * System.out.print("Enter the " + i + ". number: ");
+         * int numberFromUser = sc.nextInt();
+         * if (numberFromUser > max) {
+         * max = numberFromUser;
+         * }
+         * 
+         * }
+         * 
+         * System.out.println("Max num is: " + max);
+         */
 
-        int times = -1;
+        String text = "Hello";
+        // concat
+        int occurence = 0;
 
-        while (times < 1) {
-            System.out.print("How many numbers would you like to enter: ");
-            times = sc.nextInt();
-        }
+        for (int i = 0; i < text.length(); i++) {
 
-        int max = Integer.MIN_VALUE;
-
-        for (int i = 1; i <= times; i++) {
-            System.out.print("Enter the " + i + ". number: ");
-            int numberFromUser = sc.nextInt();
-            if (numberFromUser > max) {
-                max = numberFromUser;
+            // check if they are equal
+            if (text.substring(i, i + 1).equals("e")) {
+                occurence++;
             }
 
         }
 
-        System.out.println("Max num is: " + max);
-
+        System.out.println(text.substring(4, 4 + 1));
     }
 
     public static void loopComparison() {
