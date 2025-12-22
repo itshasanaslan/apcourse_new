@@ -1,0 +1,35 @@
+Level 1: The Transaction Counter (Easy)
+
+Task: Add a private int transactionCount to the User class.
+
+Logic: Every time a deposit or withdraw is successful, increment this counter by 1.
+
+Output: Update your toString() to include: "Total Transactions: 5".
+
+-----------------------------------------------------------
+
+Level 2: The Security Guard (Medium)
+
+Task: Add a private int attempts field to the ATM class.
+
+Logic:
+
+If the user enters the wrong PIN, increase attempts.
+
+If attempts reaches 3, print "ACCOUNT LOCKED" and refuse to validate any PINs (even the correct one) until the program is restarted.
+
+-----------------------------------------------------------
+
+Level 3: The Audit Log (Hard)
+
+Task: Add a private String history field to the User class.
+
+Logic:
+
+Initialize it as an empty string "".
+
+When depositing, concatenate: history += "Deposited: " + amount + "\n";
+
+When withdrawing, concatenate: history += "Withdrew: " + amount + "\n";
+
+Output: Add a "5. Print History" option to your ATM menu that displays this log.
