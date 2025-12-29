@@ -11,13 +11,17 @@ public class MyApp {
 
         Scanner reader = new Scanner(System.in);
 
-        System.out.print("Enter the pin:");
-        String pin = reader.next();
+        while (machine1.canProceedWithLogin()) {
+            // can try 3 times
 
-        if (machine1.validatePin(pin, user1)) {
-            machine1.showMenu(user1);
-        } else {
-            System.out.println("Incorrect pin!");
+            System.out.print("Enter the pin:");
+            String pin = reader.next();
+
+            if (machine1.validatePin(pin, user1)) {
+                machine1.showMenu(user1);
+            } else {
+                System.out.println("Incorrect pin!");
+            }
         }
 
     }

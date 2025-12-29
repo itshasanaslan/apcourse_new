@@ -5,14 +5,18 @@ public class User {
     private String name;
     private double accountBalance;
     private String pin;
+    private int transactionCount;
+    private String history; // null
 
     public User() {
+        this.history = "";
     }
 
     public User(String name, double accountBalance, String pin) {
         this.name = name;
         this.accountBalance = accountBalance;
         this.pin = pin;
+        this.history = "";
     }
 
     public String getName() {
@@ -37,6 +41,18 @@ public class User {
 
     public void setPin(String pin) {
         this.pin = pin;
+    }
+
+    public void log(String action) {
+        this.history += action + ".\n";
+    }
+
+    public String getHistory() {
+        return this.history;
+    }
+
+    public void incrementTransactionCount() {
+        this.transactionCount++;
     }
 
     public boolean deposit(double amount) {
@@ -64,7 +80,8 @@ public class User {
         String firstName = this.name.substring(0, 1).toUpperCase() + "****";
         int indexOfSpace = this.name.indexOf(" ");
         String secondName = this.name.substring(indexOfSpace + 1, indexOfSpace + 2) + "****";
-        String last = firstName + " " + secondName + " || Account Balance: $" + this.accountBalance;
+        String last = firstName + " " + secondName + " || Account Balance: $" + this.accountBalance
+                + " || Total Transactions:  " + this.transactionCount;
         return last;
     }
 

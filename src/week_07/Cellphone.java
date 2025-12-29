@@ -9,4 +9,8 @@ public class Cellphone {
     public boolean has5G;
     public boolean isBrandNew;
 
+    public String toString() {
+        return this.brand + " " + this.year;
+    }
+
 }
