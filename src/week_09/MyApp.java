@@ -1,12 +1,18 @@
 package week_09;
 
-import javax.swing.CellEditor;
+import my_games.LotteryGame;
+import helpers.ArrayHelpers;
 import week_07.Cellphone;
 
 public class MyApp {
 
     public static void main(String[] args) {
-        /*
+        LotteryGame.run();
+
+    }
+
+    public static void saturday(){
+         /*
          * String[] loots = { "Rusty Sword", "Gold Coin", "cheese", "Health Potion",
          * "Helmet", "Magic potion",
          * "Dirty pants" };
@@ -34,6 +40,8 @@ public class MyApp {
          */
 
         // an integer array with 5 items
+        // Arrays
+        // declare and create an array
 
         int[] myFancyArray = new int[5];
         myFancyArray[0] = -321;
@@ -48,10 +56,9 @@ public class MyApp {
 
         for (int index = 0; index < loots.length; index++) {
             String item = loots[index];
+            loots[index] = "blaaablaablaa";
             // print
         }
-
-        // enhanced for loop
 
         for (String item : loots) {
             System.out.println(item);
@@ -60,6 +67,9 @@ public class MyApp {
         Cellphone phone1 = new Cellphone();
         phone1.brand = "Samsung";
         phone1.year = 2025;
+
+
+
 
         Cellphone phone2 = new Cellphone();
         phone2.brand = "Apple";
@@ -83,6 +93,8 @@ public class MyApp {
         changeValue(someArray);
 
         System.out.println(someArray[0]);
+
+        ArrayHelpers.findMax(someArray)
 
         // create a double array called temperatures
         // it will have 4 different temperatures
