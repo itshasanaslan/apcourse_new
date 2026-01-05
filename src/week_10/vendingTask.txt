@@ -1,0 +1,85 @@
+SURPRISE!
+Lab: Vending Machine Logic
+Objective: Implement class interactions and array traversal using the VendingMachine and Item classes.
+
+Part 1: The Item Class
+Create a class to represent a product.
+
+Attributes: name (String), stock (int), and price (double).
+
+Constructor: Initialize all three attributes.
+
+Method: override toString() – Return a formatted String containing the name, stock, and price.
+
+Part 2: The VendingMachine Class
+This class manages an array of Item objects.
+
+1. Constructor
+public VendingMachine(Item[] items)
+Initialize a private array of Item objects. You can initialize a few different random items and pass it on the constructor. For instance:
+
+		Item item1 = new Item("M&M", 10, 7.54);
+		Item item2 = new Item("Ice-cream", 5, 10.23);
+		Item item3 = new Item("Water", 5, 2.32);
+		Item item4 = new Item("Ice tea", 10, 2.54);
+		Item item5 = new Item("Chocolate", 1, 6.24);
+		Item item6 = new Item("Brownies", 3, 6.24);
+		Item item7 = new Item("Chips", 5, 6.24);
+		Item item8 = new Item("Coke", 2, 6.24);
+		Item item9 = new Item("Apple juice", 1, 6.24);
+		Item item10 = new Item("Orange juice", 1, 6.24);
+And initialize the VendingMachine using the items. Put the items in that object's array.
+
+
+2. Display Method
+public void showSnacks() // 
+1 Chips $3.45 
+2 M&M $1.5
+
+Iterate through the items array.
+
+Print each item's index (starting at 1) and its details using toString().
+
+Heads up: Watch your loop boundaries to avoid an ArrayIndexOutOfBoundsException.
+
+3. Transaction Logic
+public void buy(User currentUser, Item whichItem)
+
+Check if the item is in stock using a helper method itemExists.
+
+Check if the currentUser has enough money.
+
+If both conditions are met:
+
+Decrement item stock by 1.
+
+Deduct the price from the user's balance.
+
+Print a success message with the remaining balance.
+
+Otherwise, print the specific reason for failure (Out of stock vs. Insufficient funds).
+
+4. User Interaction
+public boolean operate(User user)
+
+Prompt the user for an integer input.
+
+Adjust the input to match the 0-based array index.
+
+Validate that the selection is within the array range before calling buy().
+
+
+
+
+Run the app in main:
+
+//create the machine object.
+
+
+User user1 = new User("jack", 12.2);
+
+machine.showSnacks();
+		
+while(machine.operate(user1)) {
+	machine.showSnacks();
+		}

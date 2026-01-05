@@ -1,14 +1,14 @@
 package week_09;
 
-import my_games.LotteryGame;
-import helpers.ArrayHelpers;
 import week_07.Cellphone;
 
 public class MyApp {
 
     public static void main(String[] args) {
-        LotteryGame.run();
 
+      
+
+       
     }
 
     public static void saturday(){
@@ -94,7 +94,7 @@ public class MyApp {
 
         System.out.println(someArray[0]);
 
-        ArrayHelpers.findMax(someArray)
+      
 
         // create a double array called temperatures
         // it will have 4 different temperatures

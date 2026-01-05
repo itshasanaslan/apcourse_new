@@ -1,0 +1,24 @@
+1. The "Stats Wrapper" (Arrays of Primitives)
+
+The Scenario: A weather station collects temperature readings over a period of time.
+
+The Requirements:
+
+Create a class WeatherStation.
+
+Field: double[] temperatures. -> attribute - property
+
+Constructor: Accepts an integer size and initializes the array.
+
+Method setTemp(int index, double val): Sets a specific reading.
+
+Method getAverage(): Returns the average temperature.
+
+Method getMax(): Standard algorithm to find the highest temp.
+
+Method countAbove(double threshold): Returns how many days were hotter than the threshold.
+
+Bear in mind:
+
+Array Traversal (for vs for-each).
+Handling empty arrays (divide by zero checks).

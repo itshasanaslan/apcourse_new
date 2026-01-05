@@ -23,8 +23,11 @@ public class LotteryGame {
         }
 
         return array;
+      
     }
 
+
+ 
     public boolean hasWon() {
         int[] userNumbers = readFromUser();
 
@@ -46,11 +49,10 @@ public class LotteryGame {
         System.out.println();
     }
 
-    public static void run() {
+    
+    public static void run(){
         LotteryGame game = new LotteryGame(6, 25, 1);
-
-        game.printMagicNumbers(); // testing purpose
-
+         game.printMagicNumbers(); // testing purpose
         if (game.hasWon()) {
             System.out.println("You won the lottery!");
         } else {

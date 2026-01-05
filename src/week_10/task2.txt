@@ -1,0 +1,27 @@
+2. The "Aggregator" (Arrays of Objects)
+
+The Scenario: Users can add songs to a Jukebox and play them.
+
+The Requirements:
+
+Class Song: Fields (Property, attribute) for title (String), artist (String), rating (int). Include a toString().
+
+Class Jukebox:
+
+Field: Song[] songList.
+
+Constructor: Initializes the array to a fixed capacity (e.g., 20).
+
+Method addSong(Song s): Finds the first null index and adds the
+ song. Returns boolean (true if added, false if full).
+
+Method playAll(): Prints the details of all songs in the list
+ (Must check if (songList[i] != null) to avoid crashing!).
+
+Method songsByArtist(String artist): Prints all songs by a specific artist.
+
+
+Bear in mind:
+
+The NullPointerException: This is the #1 error on the AP exam for object arrays.
+Calling methods on objects inside an array access (e.g., songList[i].getTitle()).
