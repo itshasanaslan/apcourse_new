@@ -83,6 +83,7 @@ public class MyFancyApp {
                 counter++;
                 if (counter == 3) {
                     System.out.println("Sensor stuck at: " + sensorValues[i]);
+                    return true;
                 }
             }
          
