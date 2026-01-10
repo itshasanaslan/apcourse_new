@@ -2,9 +2,11 @@ package week_10;
 
 public class Jukebox {
     private Song[] songList; // isn't initialized
+
     public Jukebox(int capacity) {
         
         this.songList = new Song[capacity];
+        
 
     }
 
