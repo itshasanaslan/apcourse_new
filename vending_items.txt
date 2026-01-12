@@ -1,0 +1,50 @@
+Coca-Cola,7,9.24
+Diet Coke,15,9.99
+Sprite,5,4.92
+Fanta Orange,10,11.16
+Dr. Pepper,20,7.34
+Mountain Dew,3,14.05
+Pepsi,0,6.97
+Dasani Water,17,5.72
+Perrier Sparkling,13,3.99
+Lipton Iced Tea,20,5.03
+Minute Maid Lemonade,15,12.73
+Monster Energy,6,3.40
+Starbucks Cold Brew,11,11.26
+Tropicana OJ,13,8.31
+Apple Juice,17,0.68
+Gatorade Blue,13,1.77
+Gatorade Red,10,6.32
+Vitamin Water,7,13.84
+A&W Root Beer,10,5.84
+Canada Dry Ginger Ale,12,5.14
+Lays Classic,15,10.24
+Lays BBQ,12,10.01
+Ruffles Cheddar,8,13.71
+Doritos Nacho Cheese,15,14.08
+Doritos Cool Ranch,6,14.57
+Cheetos Crunchy,5,2.38
+Fritos Corn Chips,1,4.27
+Pringles Original,0,9.48
+Pringles Sour Cream,8,4.06
+Sun Chips Harvest,18,7.93
+Snyder's Pretzels,14,11.83
+Smartfood Popcorn,3,4.44
+Cheez-Its,17,14.99
+Goldfish Crackers,8,14.34
+Jack Link's Beef Jerky,14,7.26
+Snickers,8,4.03
+Twix,1,4.41
+KitKat,14,2.82
+Milky Way,15,9.22
+Reese's Peanut Butter Cups,20,6.40
+M&Ms Plain,2,8.36
+M&Ms Peanut,18,13.18
+Skittles Original,9,2.41
+Starburst,7,1.46
+Sour Patch Kids,14,11.28
+Haribo Gummy Bears,13,11.33
+Swedish Fish,4,1.12
+Nature Valley Granola Bar,10,9.11
+Clif Protein Bar,2,2.00
+Planters Trail Mix,2,6.83

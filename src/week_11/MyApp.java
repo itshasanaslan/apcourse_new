@@ -45,7 +45,7 @@ public class MyApp {
         scanner.close();
 
 
-       
+       VendingMachine.run();
 
     }
 
