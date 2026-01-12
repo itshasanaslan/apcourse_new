@@ -5,9 +5,7 @@ read the items from the file
 
 if file not found
 just initialize the items normal way
-
-
-        Item item1 = new Item("M&M", 10, 7.54);
+    Item item1 = new Item("M&M", 10, 7.54);
         Item item2 = new Item("Ice-cream", 5, 10.23);
         Item item3 = new Item("Water", 5, 2.32);
         Item item4 = new Item("Ice tea", 10, 2.54);
