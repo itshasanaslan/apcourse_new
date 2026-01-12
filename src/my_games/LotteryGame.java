@@ -28,7 +28,7 @@ public class LotteryGame {
 
 
  
-    public boolean hasWon() {
+    public boolean hasWon()  {
         int[] userNumbers = readFromUser();
 
         for (int i = 0; i < magicNumbers.length; i++) {
