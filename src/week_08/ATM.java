@@ -1,11 +1,14 @@
 package week_08;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class ATM {
     private String name; // Paypal, Ziraat, Garanti // attributes-properties -> access modifiers
     private double balance;
     private int attempts;
+    private ArrayList<User> users;
+
 
     public ATM(String name, double balance) {
         this.name = name;
@@ -29,6 +32,15 @@ public class ATM {
 
     public void setBalance(double balance) {
         this.balance = balance;
+    }
+
+
+    public void loadUsers(){
+        // read the file and load the users into this.users
+
+        // if any error:
+        // add 3 template users to this.user
+         
     }
 
     public boolean validatePin(String inputPin, User x) {

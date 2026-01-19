@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class MyApp {
 
     public static void main(String[] args) {
-        User user1 = new User("Ismail Adiguzel", 10000, "1234");
+        //User user1 = new User("Ismail Adiguzel", 10000, "1234");
 
         ATM machine1 = new ATM("ZiraatKonak35", 20000.21);
 
@@ -13,7 +13,7 @@ public class MyApp {
 
         while (machine1.canProceedWithLogin()) {
             // can try 3 times
-
+            // Maria Garcia 
             System.out.print("Enter the pin:");
             String pin = reader.next();
 

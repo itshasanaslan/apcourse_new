@@ -1,7 +1,6 @@
 package vending_machine;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class VendingMachine {
@@ -62,7 +61,7 @@ public class VendingMachine {
         return item.getStock() > 0;
     }
 
-    public static Item[] loadItems() throws FileNotFoundException {
+    public static Item[] loadItems()   {
 
         try {
             // try read file and load items
@@ -116,7 +115,7 @@ public class VendingMachine {
         }
     }
 
-    public static void run() throws FileNotFoundException{
+    public static void run()  {
 
         Item[] items = VendingMachine.loadItems();
         User user = new User("Jack", 55);
