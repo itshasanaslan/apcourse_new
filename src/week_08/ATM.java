@@ -1,5 +1,6 @@
 package week_08;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -7,15 +8,16 @@ public class ATM {
     private String name; // Paypal, Ziraat, Garanti // attributes-properties -> access modifiers
     private double balance;
     private int attempts;
-    private ArrayList<User> users;
-
+    public ArrayList<User> users;
 
     public ATM(String name, double balance) {
         this.name = name;
         this.balance = balance;
+        this.loadUsers();
     }
 
     public ATM() {
+        this.loadUsers();
     }
 
     public String getName() {
@@ -35,12 +37,44 @@ public class ATM {
     }
 
 
-    public void loadUsers(){
-        // read the file and load the users into this.users
+    public User userExists(String name){
+        for (User elem : this.users) {
+                if (elem.getName().toLowerCase().equals(name)) {
+                    return elem;
+                }
+        }
 
+        System.out.println("cant findf");
+
+        return null;
+    }
+
+    public void loadUsers() {
+        // read the file and load the users into this.users
+        this.users = new ArrayList<>();
+        File usersFile = new File("usersAtm.txt");
+
+        try {
+            Scanner reader = new Scanner(usersFile);
+            while (reader.hasNextLine()) {
+                String[] data = reader.nextLine().split(",");
+                User tempUser = new User(data[0], Double.parseDouble(data[1]),  data[2]);
+                this.users.add(tempUser);
+            }
+
+
+        } catch (Exception e) {
+
+            // add 3 template users to this.user
+        this.users.add(new User("Ismail Adiguzel", 10000, "1234"));
+        this.users.add(new User("Arda Ata", 20123, "1903"));
+        this.users.add(new User("Derin Cetin", 32121, "3453"));
+
+
+        }
         // if any error:
-        // add 3 template users to this.user
-         
+        
+
     }
 
     public boolean validatePin(String inputPin, User x) {
