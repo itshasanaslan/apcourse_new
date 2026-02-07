@@ -22,14 +22,67 @@ public class ArrayHelpers {
         return minValue;
     }
 
-
     public static void printArray(int[] array) {
-        
-        for (int i = 0 ; i < array.length; i++) {
+
+        for (int i = 0; i < array.length; i++) {
             System.out.print(array[i] + ", ");
         }
 
         System.out.println();
+    }
+
+    public static void print2DArray(int[][] grid) {
+        for (int[] eachRow : grid) {
+            ArrayHelpers.printArray(eachRow);
+        }
+    }
+
+    public static boolean includes(int[][] grid, int x) {
+        // if item x exist in the grid.
+
+        // jsut itereate the rows
+        // and the cols
+        // if array[row][col] == x;return true;
+
+        for (int row = 0; row < grid.length; row++) {
+
+            for (int col = 0; col < grid[row].length; col++) {
+                if (grid[row][col] == x) {
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
+
+    public static int findOccurrences(int[][] grid, int x) {
+        int occurs = 0;
+        for (int row = 0; row < grid.length; row++) {
+
+            for (int col = 0; col < grid[row].length; col++) {
+                if (grid[row][col] == x) {
+                    occurs++;
+                }
+            }
+        }
+
+        return occurs;
+    }
+
+    public static int[] getLocation(int x, int[][] grid) {
+        int[] location = { -1, -1 };
+        if (ArrayHelpers.includes(grid, x)) {
+            for (int row = 0; row < grid.length; row++) {
+                for (int col = 0; col < grid[row].length; col++) {
+                    if (grid[row][col] == x) {
+                        location[0] = row;
+                        location[1] = col;
+                    }
+                }
+            }
+        }
+        return location;
     }
 
 }
