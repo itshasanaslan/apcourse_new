@@ -85,4 +85,21 @@ public class ArrayHelpers {
         return location;
     }
 
+
+    public static void sortArray(int[] array) {
+        // start from 2nd item
+        for (int i = 1; i < array.length; i++ ) {
+            int key = array[i];
+            int j = i -1;
+
+            while (j >= 0 && array[j] > key) {
+                array[j+1] = array[j];
+                j--;
+            }
+
+            array[j + 1] = key;
+        }
+
+    }
+
 }
