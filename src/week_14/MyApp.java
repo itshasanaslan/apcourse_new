@@ -27,7 +27,6 @@ public class MyApp {
       System.out.print(" " + ArrayHelpers.findOccurrences(grid, 11) + " times.");
     }
     // Linear search
-
   }
 
   public static int sumOf2DArray(int[][] array) {
