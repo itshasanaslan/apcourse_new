@@ -31,11 +31,21 @@ public class ArrayHelpers {
         System.out.println();
     }
 
-    public static void print2DArray(int[][] grid) {
-        for (int[] eachRow : grid) {
-            ArrayHelpers.printArray(eachRow);
-        }
-    }
+   public static void print2DArray(int[][] grid) {
+		String t = "[";
+
+		for (int i = 0; i < grid.length; i++) {
+			for (int c = 0; c < grid[i].length; c++) {
+				t += grid[i][c] + ", ";
+			}
+
+			t = t.substring(0, t.length() - 2) + "]\n[";
+		}
+
+		t = t.substring(0, t.length() - 1);
+
+		System.out.println(t);
+	}
 
     public static boolean includes(int[][] grid, int x) {
         // if item x exist in the grid.
@@ -86,11 +96,11 @@ public class ArrayHelpers {
     }
 
 
-    public static void sortArray(int[] array) {
+    public static void insertionSort(int[] array) {
         // start from 2nd item
         for (int i = 1; i < array.length; i++ ) {
             int key = array[i];
-            int j = i -1;
+            int j = i -1; // index for the item on the left
 
             while (j >= 0 && array[j] > key) {
                 array[j+1] = array[j];
@@ -100,6 +110,25 @@ public class ArrayHelpers {
             array[j + 1] = key;
         }
 
+    }
+
+
+    public static void selectionSort(int[] arr) {
+        // One by one move boundary of unsorted subarray
+        for (int i = 0; i < arr.length - 1; i++) {
+            // Find the minimum element in unsorted array
+            int minIdx = i;
+            for (int j = i + 1; j < arr.length; j++) {
+                if (arr[j] < arr[minIdx]) {
+                    minIdx = j;
+                }
+            }
+            
+            // Swap the found minimum element with the first element
+            int temp = arr[minIdx];
+            arr[minIdx] = arr[i];
+            arr[i] = temp;
+        }
     }
 
 }
