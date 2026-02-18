@@ -3,7 +3,10 @@ package week_15;
 import helpers.ArrayHelpers;
 
 public class App {
-    public static void main(String[] args) {
+    public static void main(String[] args)  {
+        /*
+        
+        */
         int[] nums = { 57, 63, 10, 2, 18 };
         selectionSort(nums);
         ArrayHelpers.printArray(nums);
