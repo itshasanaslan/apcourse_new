@@ -10,21 +10,12 @@ public class Program {
         HRManager manager = new HRManager();
 
         manager.loadCustomers("customers.csv");
+        
+
+        System.out.println(manager.customers[0]);
+
+        System.out.println(manager.customers[manager.customers.length-1]);
       
-
-        manager.sortByName();
-
-        // insertion sort
-        // selection sort 
-        // merge sort
-
-        // search algorithm -> linear search algorithm  
-        // recursion 
-
-
-
-        // the latest 
-
 
 
 

@@ -83,6 +83,8 @@ public class ArrayHelpers {
 
 
        }
+
+       return false;
     }
 
     public static boolean includes(int[][] grid, int x) {
@@ -249,4 +251,21 @@ public class ArrayHelpers {
         return -1; // Target not found
     }
 
+
+
+    public static int[] generateRandomArray(int size, int min, int max) {
+        int[] array = new int[size];
+        int index = 0;
+
+        while (index < size) {
+            array[index++] =(int) (Math.random() * (max - min + 1)) + min;
+        }
+      
+
+           
+
+
+
+        return array;
+    }
 }

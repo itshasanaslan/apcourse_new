@@ -28,14 +28,20 @@ public class HRManager {
         while (reader.hasNext()) {
             String[] customerLineasCSV = reader.nextLine().split(","); // consume the line
 
+            // checking for null rows
             if (customerLineasCSV.length > 1) {
                     lines++;
-
             }
+           
         }
         reader.close();
-        this.customers = new Customer[lines];
+        
 
+        //ignore the header in the csv
+        lines--;
+
+        // initialize the array
+        this.customers = new Customer[lines];
         reader = new Scanner(file);
 
         reader.nextLine();
@@ -43,8 +49,11 @@ public class HRManager {
         while (reader.hasNext()) {
 
             String[] customerLineasCSV = reader.nextLine().split(","); // consume the line
-               if (customerLineasCSV.length < 3) {
+            // checking for any incomplete lines to skip parsing.   
+            if (customerLineasCSV.length < 3) {
                     continue;}
+
+                
             Customer customer = new Customer(
                     Integer.parseInt(customerLineasCSV[0]),
                     customerLineasCSV[1],
@@ -62,7 +71,6 @@ public class HRManager {
         }
         reader.close();
 
-        // why ,s my code isnt stopping
 
     }
 
