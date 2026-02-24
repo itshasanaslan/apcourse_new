@@ -260,12 +260,6 @@ public class ArrayHelpers {
         while (index < size) {
             array[index++] =(int) (Math.random() * (max - min + 1)) + min;
         }
-      
-
-           
-
-
-
         return array;
     }
 }
