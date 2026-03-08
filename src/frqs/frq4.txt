@@ -1,0 +1,34 @@
+public Location getNextLoc(int row, int col){
+    // if I'm at the last row. If so, move right
+    if (row == grid.length - 1) {
+        return new Location(row, col + 1);
+    }
+    // last column, so next row
+    else if (col == grid[0].length - 1) {
+          return new Location(row + 1, col );
+    }
+
+    //move with smaller neighbor
+    else if (this.grid[row + 1][col] < grid[row][col+1]) {
+        return new Location (row + 1, col);
+    }
+    else {
+        return new Location (row , col + 1);
+    }
+}
+
+
+PART B
+public int sumPath(int row, int col) {
+    int sum = 0;
+    while (row < grid.length -1 || col < grid[row].length - 1 ) {
+        sum += this.grid[row][col];
+        
+        Location neighbor = getNextLoc(row, col);
+        row = neighbor.getRow();
+        col = neighbor.getCol();
+    }
+
+   return sum + grid[row][col];   
+}
+

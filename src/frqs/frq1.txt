@@ -1,0 +1,47 @@
+public void simulateOneDay(int numBirds){
+
+    // it's a simulation
+
+    // 95% birds
+    // 5% bear
+
+    double condition = Math.random(); // 0.0-0.9999999;
+
+    if (condition < 0.05) {
+        // a bear comes and empties the feeder
+        currentFood = 0;
+    }
+    else {
+        // generate a num 10-50
+
+        int eachBirdEats = (int) (Math.random() *  (50 - 10 + 1)) + 10; 
+        int totalEatenFood = numBirds *eachBirdEats;
+
+        if (totalEatenFood > currentFood) {
+            currentFood = 0;
+        }
+
+        else {
+            currentFood -= totalEatenFood;
+        }
+    }
+
+ }
+
+
+ public int simulateManyDays(int numBirds, int numDays) {
+
+
+    for (int days = 0; days < numDays; days++) {
+
+        if (currentFood == 0) {
+            return days;
+        }
+
+
+        simulateOneDay(numBirds);
+    }
+
+
+    return numDays;
+ }

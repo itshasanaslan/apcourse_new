@@ -1,0 +1,29 @@
+//PART a
+public boolean isWordChain() {
+    for (int i = 1;  i < wordList.size(); i++) {
+        String currentWord = wordList.get(i);
+
+        String previousWord = wordList.get(i - 1);
+        if (currentWord.indexOf(previousWord) == -1) {
+            return false;
+        }
+    }
+    return true;
+}
+
+
+public ArrayList<String> createList(String target)
+{ 
+        ArrayList<String> result = new ArrayList<String>();
+        for (String currentWord: this.wordList ) {
+                if (currentWord.indexOf(target) == 0) {
+                    String newStr = currentWord.subString(target.length());
+                    result.add(newStr);
+                }
+        }
+        return result;
+}
+
+
+
+

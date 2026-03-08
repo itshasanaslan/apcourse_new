@@ -127,6 +127,67 @@ public class HRManager {
 
     }
 
+
+
+    public  void sortFirstNameMergeSort(Customer[] elements, int from, int to) {
+    // Base Case: If from is not less than to, the subarray has 1 or 0 items
+    if (from < to) {
+        int middle = (from + to) / 2;
+
+        // Recursively sort the left and right halves
+        sortFirstNameMergeSort(elements, from, middle);
+        sortFirstNameMergeSort(elements, middle + 1, to);
+
+        // Merge the sorted halves back together
+        merge(elements, from, middle, to, false);
+    }
+}
+
+private  void merge(Customer[] elements, int from, int middle, int to, boolean isAscending) {
+    // Create a temporary array of Customer objects
+    Customer[] temp = new Customer[to - from + 1];
+
+    int i = from;       // Pointer for the left half
+    int j = middle + 1; // Pointer for the right half
+    int k = 0;          // Pointer for the temp array
+
+    // Compare first names using compareTo()
+    while (i <= middle && j <= to) {
+        // compareTo returns < 0 if the first string comes before the second alphabetically
+        if (
+    isAscending ? elements[i].getFirstName().compareTo(elements[j].getFirstName()) <= 0 : elements[i].getFirstName().compareTo(elements[j].getFirstName()) > 0) {
+            temp[k] = elements[i];
+            i++;
+        } else {
+            temp[k] = elements[j];
+            j++;
+        }
+        k++;
+    }
+
+    // Copy remaining elements from left half
+    while (i <= middle) {
+        temp[k] = elements[i];
+        i++;
+        k++;
+    }
+
+    // Copy remaining elements from right half
+    while (j <= to) {
+        temp[k] = elements[j];
+        j++;
+        k++;
+    }
+
+    // Copy everything from temp back into the original array
+    for (int n = 0; n < temp.length; n++) {
+        elements[from + n] = temp[n];
+    }
+}
+
+
+
+
     // 99862
     // first, sort it 
     // binary search

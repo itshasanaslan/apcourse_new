@@ -1,0 +1,47 @@
+public class Scoreboard {
+
+    private String team1, team2;
+    private boolean isTeam1Active;
+    private int team1Score, team2Score;
+    
+
+    public Scoreboard(String team1, String team2) {
+        this.team1 = team1;
+        this.team2 = team2;
+        this.isTeam1Active = true;
+        this.team1Score = 0;
+        this.team2Score = 0;
+    }
+
+
+
+    public void recordPlay(int score) {
+        if (score == 0) {
+            isTeam1Active = !isTeam1Active;
+        }
+
+        else if (isTeam1Active) {
+            this.team1Score += score;
+        }
+        else {
+            this.team2Score += score;
+        }
+
+    }
+
+
+
+public String getScore() {
+    String toReturn = team1Score + "-" + team2Score + "-";
+
+    if (isTeam1Active) toReturn += team1;
+    else {
+        toReturn += team2;
+    }
+
+        
+    return toReturn;
+}
+
+
+}
