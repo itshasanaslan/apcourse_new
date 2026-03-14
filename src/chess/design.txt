@@ -1,0 +1,49 @@
+classes
+
+Player -> incomplete
+ActionReq -> complete
+cell ->
+piece
+board -> incomplete
+game
+
+
+
+
+SOC
+Seperation of Concerns
+
+
+
+Suggestions:
+extra board to reverse moves.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Board {
+    board[0][0] = new Piece()
+    board[1][0] = new Piece()
+    // rook
+    // pawn
+    
+}
