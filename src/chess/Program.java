@@ -6,7 +6,6 @@ public class Program {
         System.out.println("chesss");
 
         Player p = new Player("ismaİL aDıGüzel", null); // Ismail Adıguzel
-
-
+    
     }
 }

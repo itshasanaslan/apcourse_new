@@ -1,11 +1,12 @@
 package chess.pieces;
 
 import chess.ActionRequest;
+import chess.Board;
 import chess.Cell;
 import chess.Player;
 
 public abstract class Piece {
-    //public static Board gameBoard;
+    public static Board gameBoard;
     private Cell currentlyOnTheCell;
     private String name;
     private Player belongsToOwner;
@@ -51,6 +52,4 @@ public abstract class Piece {
     public abstract int[][] getPossibleLocations();
 
     
-
-
 }

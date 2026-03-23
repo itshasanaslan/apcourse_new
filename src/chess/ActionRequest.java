@@ -16,6 +16,4 @@ public class ActionRequest {
         isSuccessful = result;
     }
 
-
-
 }

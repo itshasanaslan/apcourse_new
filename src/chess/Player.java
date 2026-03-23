@@ -12,6 +12,13 @@ public class Player {
     }
     
 
+    
+    public Player(String name, String color) {
+        this.name = name;
+        this.color = color;
+    }
+    
+
     // ismail adiguzel
     public void setName(String name){
         this.name = "";
@@ -25,11 +32,6 @@ public class Player {
     }
 
 
-    public Player(String name, String color) {
-        this.name = name;
-        this.color = color;
-    }
-    
 
     public String getName(){
         return this.name;

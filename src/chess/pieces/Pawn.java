@@ -1,18 +1,63 @@
 package chess.pieces;
 
 import chess.ActionRequest;
+import chess.Board;
 import chess.Cell;
 import chess.Player;
 
+
+// inheritance 2025 oop
+// file reading
+
 public class Pawn extends Piece{
+
+
     public Pawn(Cell currentlyOnTheCell, String name, Player belongsToOwner){
         super(currentlyOnTheCell, name, belongsToOwner);
     }
 
     @Override
     public  ActionRequest canItMove(Cell toCell) {
-        // in a different
-        return new ActionRequest();
+        ActionRequest result = new ActionRequest();
+        result.message = "Invalid move";
+
+        int currentRow = this.getCurrentlyOnTheCell().getRow();
+        int currentCol = this.getCurrentlyOnTheCell().getColumn();
+        int toRow = toCell.getRow();
+        int toCol = toCell.getColumn();
+
+        int direction = this.getBelongsToOwner().getColor().equals("WHITE") ? -1 : 1;
+
+    // move one forward
+        if (toCol == currentCol && toRow == currentRow + direction) {
+            if (toCell.getPieceOnMe() ==  null) {
+                result.isSuccessful = true;
+                result.message = "The pawn moved forward one square.";
+                return result;
+            }
+        }
+
+    // move two forward if hasn't moved before
+    boolean isFirstMove = (direction == -1 && currentRow == 6) || (direction == 1 && currentRow == 1);
+    if (isFirstMove && toCol == toCol  && toRow == currentRow + (2 * direction)) {
+        if (toCell.getPieceOnMe()==null &&  Piece.gameBoard.cells[currentRow + direction][currentCol] == null ) {
+            result.isSuccessful = true;
+            result.message = "The pawn moved forward two squares.";
+            return result;
+        }
+
+    }
+
+    // diagonal captures    
+        if (toRow == currentRow+direction && Math.abs(toCol - currentCol) == 1) {
+            if (toCell.getPieceOnMe() != null && !toCell.getPieceOnMe().getBelongsToOwner().equals(this.getBelongsToOwner())) {
+                result.isSuccessful = true;
+                result.message = "The pawn moved diagonally and captured a piece.";
+                return result;
+            }
+
+        }
+        return result;
     }
 
     @Override
@@ -21,13 +66,20 @@ public class Pawn extends Piece{
         return null;
     }
 
-
+ // show c2
+ 
 
 
     @Override
     public ActionRequest move(Cell toCell) {
-        // TODO Auto-generated method stub
-        return null;
+        ActionRequest isMoveAllowed = this.canItMove(toCell);
+        if (isMoveAllowed.isSuccessful) {
+            this.setCurrentlyOnTheCell(toCell);
+        }
+
+        return isMoveAllowed;
     }
 
 }
+
+
