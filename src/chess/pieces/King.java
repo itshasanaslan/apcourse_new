@@ -1,5 +1,7 @@
 package chess.pieces;
 
+import java.util.ArrayList;
+
 import chess.ActionRequest;
 import chess.Cell;
 import chess.Player;
@@ -22,7 +24,8 @@ public class King extends Piece {
 
         // if the target has the same color
         if (toCell.getPieceOnMe().getBelongsToOwner().getColor().equals(
-                this.getBelongsToOwner().getColor()));
+                this.getBelongsToOwner().getColor()))
+            ;
 
         // king can move ONE square in any direction
         int rowDiff = Math.abs(toRow - currentRow);
@@ -42,14 +45,35 @@ public class King extends Piece {
             result.isSuccessful = true;
         }
 
-
         return result;
     }
 
     @Override
     public int[][] getPossibleLocations() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getPossibleLocations'");
+        ArrayList<int[]> possibleMoves = new ArrayList<>();
+        int currentRow = this.getCurrentlyOnTheCell().getRow();
+        int currentCol = this.getCurrentlyOnTheCell().getColumn();
+
+        // initializer list
+        int[][] directions = {
+                { 1, 1 }, { 1, -1 }, { -1, 1 }, { -1, -1 },
+                { 0, -1 }, { 0, 1 }, { -1, 0 }, { 1, 0 }
+        };
+
+        for (int[] direction : directions) {
+            int row = direction[0];
+            int col = direction[1];
+
+            // check if index in range
+            if (row >= 0 && row < 8 && col >= 0 && col < 8) {
+                possibleMoves.add(
+                        new int[] { row, col });
+
+            }
+        }
+        
+        // filter your moves
+       return this.filterMoves(possibleMoves);
     }
 
 }

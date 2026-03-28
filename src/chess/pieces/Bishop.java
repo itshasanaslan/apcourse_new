@@ -91,18 +91,7 @@ public class Bishop extends Piece {
         }
 
         // filter your moves
-        ArrayList<int[]> validMoves = new ArrayList<>();
-        for (int[] proposedMove : possibleMoves) {
-            if (this.canItMove(gameBoard.cells[proposedMove[0]][proposedMove[1]]).isSuccessful) {
-                validMoves.add(proposedMove);
-            }
-        }
-        int[][] result = new int[validMoves.size()][2];
-
-        for (int i = 0; i < validMoves.size(); i++) {
-            result[i] = validMoves.get(i);
-        }
-        return result;
+       return this.filterMoves(possibleMoves);
 
     }
 

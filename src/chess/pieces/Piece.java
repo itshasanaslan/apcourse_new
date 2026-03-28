@@ -1,5 +1,7 @@
 package chess.pieces;
 
+import java.util.ArrayList;
+
 import chess.ActionRequest;
 import chess.Board;
 import chess.Cell;
@@ -50,6 +52,23 @@ public abstract class Piece {
             this.setCurrentlyOnTheCell(toCell);
         }
         return isMoveAllowed;
+    }
+
+    public int[][] filterMoves(  ArrayList<int[]> possibleMoves){
+
+         ArrayList<int[]> validMoves = new ArrayList<>();
+        for (int[] proposedMove : possibleMoves) {
+            if (this.canItMove(gameBoard.cells[proposedMove[0]][proposedMove[1]]).isSuccessful) {
+                validMoves.add(proposedMove);
+            }
+        }
+        int[][] result = new int[validMoves.size()][2];
+
+        for (int i = 0; i < validMoves.size(); i++) {
+            result[i] = validMoves.get(i);
+        }
+        return result;
+
     }
 
 
