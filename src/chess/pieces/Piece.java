@@ -44,10 +44,16 @@ public abstract class Piece {
 
 
 
+    public ActionRequest move(Cell toCell) {
+        ActionRequest isMoveAllowed = this.canItMove(toCell);
+        if (isMoveAllowed.isSuccessful) {
+            this.setCurrentlyOnTheCell(toCell);
+        }
+        return isMoveAllowed;
+    }
+
 
     public abstract ActionRequest canItMove(Cell toCell);
-
-    public abstract ActionRequest move(Cell toCell);
    
     public abstract int[][] getPossibleLocations();
 

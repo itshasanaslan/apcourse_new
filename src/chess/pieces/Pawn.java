@@ -68,18 +68,6 @@ public class Pawn extends Piece{
 
  // show c2
  
-
-
-    @Override
-    public ActionRequest move(Cell toCell) {
-        ActionRequest isMoveAllowed = this.canItMove(toCell);
-        if (isMoveAllowed.isSuccessful) {
-            this.setCurrentlyOnTheCell(toCell);
-        }
-
-        return isMoveAllowed;
-    }
-
 }
 
 
