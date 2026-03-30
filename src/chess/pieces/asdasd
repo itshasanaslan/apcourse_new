@@ -1,0 +1,4 @@
+- Add a Checkmate detector (Iterate over all opponent pieces, count if total valid moves == 0).
+- Add Castling logic.
+- Add En Passant logic.
+- captured ones?,
