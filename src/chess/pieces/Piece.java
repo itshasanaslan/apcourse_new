@@ -14,6 +14,10 @@ public abstract class Piece {
     private Player belongsToOwner;
 
 
+    public static void setBoardObject(Board board) {
+        gameBoard = board;
+    }
+
     public Piece(Cell currentlyOnTheCell, String name, Player belongsToOwner) {
         this.currentlyOnTheCell = currentlyOnTheCell;
         this.name = name;
