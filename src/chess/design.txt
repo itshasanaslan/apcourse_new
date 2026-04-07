@@ -17,6 +17,11 @@ Seperation of Concerns
 
 Suggestions:
 extra board to reverse moves.
+// logs
+// history
+
+
+
 
 
 
