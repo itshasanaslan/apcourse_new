@@ -7,12 +7,11 @@ public class Program {
         Player whitePlayer = new Player("ismail", Game.WHITE);
         Player blackPlayer = new Player("emir", Game.BLACK);
 
-
         // create a board
         Board board = new Board();
         // initialize the board
         board.initialize(whitePlayer, blackPlayer);
-        //create a game object
+        // create a game object
         Game game = new Game(whitePlayer, blackPlayer, board);
 
         // play the game.

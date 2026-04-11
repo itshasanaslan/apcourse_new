@@ -6,19 +6,17 @@ import chess.Cell;
 import chess.Game;
 import chess.Player;
 
-
 // inheritance 2025 oop
 // file reading
 
-public class Pawn extends Piece{
+public class Pawn extends Piece {
 
-
-    public Pawn(Cell currentlyOnTheCell, String name, Player belongsToOwner){
+    public Pawn(Cell currentlyOnTheCell, String name, Player belongsToOwner) {
         super(currentlyOnTheCell, name, belongsToOwner);
     }
 
     @Override
-    public  ActionRequest canItMove(Cell toCell) {
+    public ActionRequest canItMove(Cell toCell) {
         ActionRequest result = new ActionRequest();
         result.message = "Invalid move";
 
@@ -29,32 +27,32 @@ public class Pawn extends Piece{
 
         int direction = this.getBelongsToOwner().getColor().equals(Game.WHITE) ? -1 : 1;
 
-    // move one forward
+        // move one forward
         if (toCol == currentCol && toRow == currentRow + direction) {
-            if (toCell.getPieceOnMe() ==  null) {
+            if (toCell.getPieceOnMe() == null) {
                 result.isSuccessful = true;
                 result.message = "The pawn moved forward one square.";
                 return result;
             }
         }
 
-    // move two forward if hasn't moved before
-    boolean isFirstMove = (direction == -1 && currentRow == 6) || (direction == 1 && currentRow == 1);
+        // move two forward if hasn't moved before
+        boolean isFirstMove = (direction == -1 && currentRow == 6) || (direction == 1 && currentRow == 1);
 
- 
-    if (isFirstMove && currentCol == toCol  && toRow == currentRow + (2 * direction)) {
-        if (toCell.getPieceOnMe()==null &&  Piece.gameBoard.cells[currentRow + direction][currentCol].getPieceOnMe() == null ) {
-            result.isSuccessful = true;
-            result.message = "The pawn moved forward two squares.";
-            return result;
+        if (isFirstMove && currentCol == toCol && toRow == currentRow + (2 * direction)) {
+            if (toCell.getPieceOnMe() == null
+                    && Piece.gameBoard.cells[currentRow + direction][currentCol].getPieceOnMe() == null) {
+                result.isSuccessful = true;
+                result.message = "The pawn moved forward two squares.";
+                return result;
+            }
+
         }
 
-    }
-
-
-    // diagonal captures    
-        if (toRow == currentRow+direction && Math.abs(toCol - currentCol) == 1) {
-            if (toCell.getPieceOnMe() != null && !toCell.getPieceOnMe().getBelongsToOwner().equals(this.getBelongsToOwner())) {
+        // diagonal captures
+        if (toRow == currentRow + direction && Math.abs(toCol - currentCol) == 1) {
+            if (toCell.getPieceOnMe() != null
+                    && !toCell.getPieceOnMe().getBelongsToOwner().equals(this.getBelongsToOwner())) {
                 result.isSuccessful = true;
                 result.message = "The pawn moved diagonally and captured a piece.";
                 return result;
@@ -70,8 +68,6 @@ public class Pawn extends Piece{
         return null;
     }
 
- // show c2
- 
+    // show c2
+
 }
-
-
