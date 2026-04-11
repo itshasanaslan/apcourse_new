@@ -24,6 +24,10 @@ public class Game {
     private ArrayList<String> moveHistory;
 
     public Game(Player player1, Player player2, Board board) {
+        this.capturedPieces = new ArrayList<Piece>();
+        this.moveHistory = new ArrayList<String>();
+
+
         if (player1.getColor().equals(Game.WHITE)) {
             this.whitePlayer = player1;
             this.blackPlayer = player2;
@@ -76,7 +80,8 @@ public class Game {
 		System.out.println("4. View history:   'history'    (shows all moves)");
 		System.out.println("5. Get help:       'help'       (shows this menu)");
         System.out.println("6. Suggest a draw: 'draw'       (suggest a draw)");
-		System.out.println("7. Quit game:      'quit'");
+        System.out.println("7. Show captured pieces: 'captured'      (shows captured pieces)");
+		System.out.println("8. Quit game:      'quit'");
 		System.out.println("\nPiece symbols:");
 		System.out.println("White pieces: P=Pawn, R=Rook, N=Knight, B=Bishop, Q=Queen, K=King");
 		System.out.println("Black pieces: p=pawn, r=rook, n=knight, b=bishop, q=queen, k=king");
@@ -107,6 +112,16 @@ public class Game {
         else if (command.equals("draw")) {
             //this.suggestDraw();
 		} 
+        
+        else if(command.equals("captured")) {
+            System.out.println("Printing captured pieces");
+
+            for (Piece captured : this.capturedPieces) {
+                System.out.println(captured.getName());
+            }
+
+        }
+
         else if (command.equals("quit")) {
 			System.out.println("Game ended by user.");
 			isGameInProgress = false;
@@ -133,7 +148,9 @@ public class Game {
     }
 
     public void displayMoveHistory() {
-        System.out.println("history method is incomplete");
+        for (String log: this.moveHistory) {
+                  System.out.println(log);
+        }
     }
 
 
@@ -257,6 +274,7 @@ private void displayBoardWithPossibleMoves(int[][] possibleLocations) {
 
 
 
+// a2 a3
 public void handleMoveCommand(String command) {
     // command = e2 e4
     if (!isMoveCommand(command)) {
@@ -265,36 +283,71 @@ public void handleMoveCommand(String command) {
     }
     int spaceIndex = command.indexOf(" ");
     int[] fromLocation = convertPosition(command);
-    String to = command.substring(spaceIndex + 1).trim(); // e4 
+    String toLocationString = command.substring(spaceIndex + 1).trim(); // e4 
 
     // convert e2 into array indices
     // a = 97, h = 104   
     // e
 
-    int toCol = to.charAt(0) - 'a';
-    int toRow = 8 - to.charAt(1);
+    int[] toLocation = convertPosition(toLocationString);
+    int toCol = toLocation[1];
+    int toRow = toLocation[0];
     Piece myPiece = this.board.cells[fromLocation[0]][fromLocation[1]].getPieceOnMe();
 
     if (myPiece == null) {
         System.out.println("No piece at the position " + command);
         return;
     }
+
+    // check for the color; if that's opponent -> return 
+
+    if (!myPiece.getBelongsToOwner().getColor().equals( this.currentPlayer.getColor())) {
+        System.out.println("It's not your piece you greedy!");
+        return;
+    }
+
     Cell targetCell = this.board.cells[toRow][toCol];
     ActionRequest request = myPiece.move(targetCell);
-    if (request.isSuccessful) {
-        // we need to store the captured piece somwehee before we capture it.
-        this.capturedPieces.add(targetCell.getPieceOnMe());
 
+    // action is successful
+    if (request.isSuccessful) {
+
+        // we need to store the captured piece somwehee before we capture it.
+        if (targetCell.getPieceOnMe() != null) {
+             this.capturedPieces.add(targetCell.getPieceOnMe());
+        }
+       
         // clean the cell that you moved from 
         this.board.cells[toRow][toCol].setPieceOnMe(null);
         
         // put your piece on the target cell
         targetCell.setPieceOnMe(myPiece);
-    
-        // change the target
+
+        // update the new cell on your piece object
+        myPiece.setCurrentlyOnTheCell(targetCell);
+        // clean the prev loc
+        if (request.isSuccessful) {
+            this.board.cells[fromLocation[0]][fromLocation[1]].setPieceOnMe(null);
+
+
+
+            
+        // a2 a3 WHITE
+        String log = moveCount + ") " + command.substring(0, 2)  + " " + toLocationString + " (" + this.currentPlayer.getColor() + ")";
+        this.moveHistory.add(log);
+
+            this.currentPlayer = this.currentPlayer == blackPlayer ? this.whitePlayer : this.blackPlayer;
+
+        }
+
+
+
     }
 
+   
     System.out.println(request.message);
+
+    this.moveCount++;
 
 }
 
@@ -312,6 +365,39 @@ public int[] convertPosition(String position) {
     return coordinates;    
 }
 
+
+
+
+public void explainCurrentPosition(){
+    // print the number of remaining pieces for both white, black and material difference 
+
+    System.out.println("Position explanation has not been implemented yet");
 }
+
+public boolean isCheckMate(){
+
+    // look for the king
+    // is there a king and  is it the only piece that is remaining for that color
+    //      if so:
+            // checkmate
+
+
+        // do this for both colors
+
+
+        return true;
+}
+
+
+
+
+}
+
+
+
+
+
+
 // explainCurrnet
-// handleMoveCommand
+//check game end
+// is check

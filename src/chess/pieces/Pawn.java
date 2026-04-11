@@ -3,6 +3,7 @@ package chess.pieces;
 import chess.ActionRequest;
 import chess.Board;
 import chess.Cell;
+import chess.Game;
 import chess.Player;
 
 
@@ -21,12 +22,12 @@ public class Pawn extends Piece{
         ActionRequest result = new ActionRequest();
         result.message = "Invalid move";
 
-        int currentRow = this.getCurrentlyOnTheCell().getRow();
+        int currentRow = this.getCurrentlyOnTheCell().getRow(); // there's an issue here
         int currentCol = this.getCurrentlyOnTheCell().getColumn();
         int toRow = toCell.getRow();
         int toCol = toCell.getColumn();
 
-        int direction = this.getBelongsToOwner().getColor().equals("WHITE") ? -1 : 1;
+        int direction = this.getBelongsToOwner().getColor().equals(Game.WHITE) ? -1 : 1;
 
     // move one forward
         if (toCol == currentCol && toRow == currentRow + direction) {
@@ -39,14 +40,17 @@ public class Pawn extends Piece{
 
     // move two forward if hasn't moved before
     boolean isFirstMove = (direction == -1 && currentRow == 6) || (direction == 1 && currentRow == 1);
-    if (isFirstMove && toCol == toCol  && toRow == currentRow + (2 * direction)) {
-        if (toCell.getPieceOnMe()==null &&  Piece.gameBoard.cells[currentRow + direction][currentCol] == null ) {
+
+ 
+    if (isFirstMove && currentCol == toCol  && toRow == currentRow + (2 * direction)) {
+        if (toCell.getPieceOnMe()==null &&  Piece.gameBoard.cells[currentRow + direction][currentCol].getPieceOnMe() == null ) {
             result.isSuccessful = true;
             result.message = "The pawn moved forward two squares.";
             return result;
         }
 
     }
+
 
     // diagonal captures    
         if (toRow == currentRow+direction && Math.abs(toCol - currentCol) == 1) {

@@ -39,7 +39,7 @@ public class Board {
             this.cells[6][col].setPieceOnMe(
                     new Pawn(this.cells[6][col], "WhitePawn", whitePlayer));
             this.cells[1][col].setPieceOnMe(
-                    new Pawn(this.cells[6][col], "BlackPawn", blackPlayer));
+                    new Pawn(this.cells[1][col], "BlackPawn", blackPlayer));
         }
 
         // place the pieces for the white player
