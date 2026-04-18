@@ -33,7 +33,9 @@ public class Program {
 
 
 
-        
+        double x = 3;
+
+        int y = (int) x;
 
 
     }   

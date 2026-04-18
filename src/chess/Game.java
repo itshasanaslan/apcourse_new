@@ -53,6 +53,7 @@ public class Game {
 
             try {
                 processCommand(command);
+                checkGameEnd();
             } catch (Exception e) {
                 System.out.println("Error: " + e.getMessage());
                 System.out.println("Type 'help' for instructions.");
@@ -99,8 +100,11 @@ public class Game {
 
         if (command.equals("board")) {
             System.out.println(board);
-            // explainCurrentPosition();
-        } else if (command.equals("history")) {
+        } else if (command.equals("explain")) {
+            explainCurrentPosition();
+        }
+
+        else if (command.equals("history")) {
             displayMoveHistory();
         } else if (command.equals("help")) {
             printInstructions();
@@ -345,23 +349,98 @@ public class Game {
         // print the number of remaining pieces for both white, black and material
         // difference
 
+        int blackPieces = 0;
+        int whitePieces = 0;
+
+        for (Cell[] cellArray : this.board.cells) {
+
+            for (Cell cell : cellArray) {
+
+                if (cell.getPieceOnMe() != null) {
+                    if (cell.getPieceOnMe().getBelongsToOwner().getColor().equals(Game.BLACK)) {
+                        blackPieces++;
+                    }
+
+                    else {
+                        whitePieces++;
+                    }
+                }
+
+            }
+
+            System.out.println("Number of black pieces remaining: " + blackPieces);
+            System.out.println("Number of white pieces remaining: " + whitePieces);
+
+        }
+
         System.out.println("Position explanation has not been implemented yet");
     }
 
+
+public void checkGameEnd(){
+   if (isStaleMate() || isCheckMate() ) {
+   // this.isGameInProgress = false;
+   }
+}
+
+
+public boolean isStaleMate(){
+    return false;
+}
+
     public boolean isCheckMate() {
 
-        // look for the king
-        // is there a king and is it the only piece that is remaining for that color
-        // if so:
-        // checkmate
+        Cell currentPlayersKingCell = null;
+          for (Cell[] cellArray : this.board.cells) {
 
-        // do this for both colors
+            for (Cell cell : cellArray) {
 
+                if (cell.getPieceOnMe() != null && cell.getPieceOnMe().getName().indexOf("King") > -1) {
+
+                    currentPlayersKingCell = cell;
+                    
+                   int[][] possibleLocationsForTheKing =  currentPlayersKingCell.getPieceOnMe().getPossibleLocations();
+                    
+                  if ( possibleLocationsForTheKing.length > 0) {
+                    // king can move
+
+                    return false;
+
+                  }
+
+                    }
+                }
+            }
+
+       // no available moves for the king
+        
+       // check for any other pieces if they have available positions as kings location
+
+
+       for (int r = 0 ; r < 8; r++) {
+
+            for (int c = 0; c < 8; c++) {
+
+
+                Piece onTheCell = this.board.cells[r][c].getPieceOnMe(); 
+
+                int[][] possibleLocations = onTheCell.getPossibleLocations();
+
+                for (int[] location: possibleLocations) {
+
+                   if (currentPlayersKingCell != null) {
+                     if (location[0] ==  currentPlayersKingCell.getRow() && location[1] == currentPlayersKingCell.getColumn()) {
+                        // check mate
+
+                        return true;
+                    }
+                   }
+                } 
+            }
+
+       }
+       
         return true;
     }
 
 }
-
-// explainCurrnet
-// check game end
-// is check

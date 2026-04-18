@@ -1,5 +1,7 @@
 package chess;
 
+import helpers.ArrayHelpers;
+
 public class Program {
 
     public static void main(String[] args) {
@@ -17,6 +19,5 @@ public class Program {
         // play the game.
 
         game.play();
-
     }
 }

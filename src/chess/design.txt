@@ -19,6 +19,7 @@ Suggestions:
 extra board to reverse moves.
 // logs
 // history
+//stalemate
 
 
 
