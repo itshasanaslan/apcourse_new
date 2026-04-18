@@ -72,8 +72,8 @@ public class Bishop extends Piece {
         };
 
         for (int[] direction : directions) {
-            int row = direction[0];
-            int col = direction[1];
+            int row = currentRow + direction[0];
+            int col = currentCol + direction[1];
 
             // check if index in range
             while (row >= 0 && row < 8 && col >= 0 && col < 8) {

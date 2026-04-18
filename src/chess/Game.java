@@ -53,7 +53,7 @@ public class Game {
 
             try {
                 processCommand(command);
-                checkGameEnd();
+                //checkGameEnd();
             } catch (Exception e) {
                 System.out.println("Error: " + e.getMessage());
                 System.out.println("Type 'help' for instructions.");

@@ -79,45 +79,35 @@ public class Rook extends Piece {
         return isMoveAllowed;
     }
 
+    @Override
     public int[][] getPossibleLocations() {
         ArrayList<int[]> possibleMoves = new ArrayList<>();
         int currentRow = this.getCurrentlyOnTheCell().getRow();
         int currentCol = this.getCurrentlyOnTheCell().getColumn();
 
-        for (int col = currentCol + 1; col < 8; col++) {
-            possibleMoves.add(
-                    new int[] { currentRow, currentCol });
-            if (gameBoard.cells[currentRow][currentCol].getPieceOnMe() != null) {
-                break;
+        // Directions: Right, Left, Down, Up
+        int[][] directions = { { 0, 1 }, { 0, -1 }, { 1, 0 }, { -1, 0 } };
+
+        for (int[] d : directions) {
+            int r = currentRow + d[0];
+            int c = currentCol + d[1];
+
+            // Slide in the direction until we hit an edge or a piece
+            while (r >= 0 && r < 8 && c >= 0 && c < 8) {
+                // We add the coordinate {r, c}, not the starting {currentRow, currentCol}
+                possibleMoves.add(new int[] { r, c });
+
+                // If there is a piece here, the path is blocked (stop sliding)
+                if (gameBoard.cells[r][c].getPieceOnMe() != null) {
+                    break;
+                }
+
+                r += d[0];
+                c += d[1];
             }
         }
 
-        for (int col = currentCol - 1; col >= 0; col--) {
-            possibleMoves.add(
-                    new int[] { currentRow, currentCol });
-            if (gameBoard.cells[currentRow][currentCol].getPieceOnMe() != null) {
-                break;
-            }
-        }
-
-        for (int row = currentRow + 1; row < 8; row++) {
-            possibleMoves.add(
-                    new int[] { currentRow, currentCol });
-            if (gameBoard.cells[currentRow][currentCol].getPieceOnMe() != null) {
-                break;
-            }
-        }
-
-        for (int row = currentRow - 1; row >= 0; row--) {
-            possibleMoves.add(
-                    new int[] { currentRow, currentCol });
-            if (gameBoard.cells[currentRow][currentCol].getPieceOnMe() != null) {
-                break;
-            }
-        }
-
-        // filter your moves
-      return this.filterMoves(possibleMoves);
+        return this.filterMoves(possibleMoves);
     }
 
 }
