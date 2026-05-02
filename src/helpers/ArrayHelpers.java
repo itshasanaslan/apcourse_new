@@ -133,7 +133,7 @@ public class ArrayHelpers {
         }
         return location;
     }
-
+    
 
     public static void insertionSort(int[] array) {
         // start from 2nd item
@@ -172,7 +172,7 @@ public class ArrayHelpers {
         }
     }
 
-
+        // 9,8,7,6,5,4,3,2,1
     public static void mergeSort(int[] elements, int from, int to) {
         // Base Case: If from is not less than to, the subarray has 1 or 0 items
         if (from < to) {
@@ -230,6 +230,8 @@ public class ArrayHelpers {
 
 
     public static int binarySearch(int[] nums, int target) {
+
+        //precondition -> array must be sorted 
         int left = 0;
         int right = nums.length - 1;
 

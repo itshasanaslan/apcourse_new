@@ -2,25 +2,40 @@ package revision;
 
 import java.util.ArrayList;
 
-import helpers.ArrayHelpers;
-
 public class Program {
-    public  static int y; // Global variable
-    //scope
-    public static void main(String[] args){
-        // allocation, declaration
-        int x = 3;
-        System.out.println(x);
-        //scope
-           y = 15;
+
+    public static void main(String[] args) {
+
+        int x = 5;
+
+        int fOfx = factorial(x);
+
+
     }
 
-    public  void hello(){
-        y = 14;
-        System.out.println(y);
+    public static void hey() {
+        Warrior w1 = new Warrior("Camelot", 90, 7);
+        Warrior w2 = new Warrior("Arthur", 100, 7);
+        Warrior w3 = new Warrior();
+        Game game = new Game();
+
     }
 
-    list.sort
 
-    ArrayHelpers.merge()
+ 
+
+
+    public static int factorial(int n) {
+        // base case
+        if (n == 0 || n == 1)
+            return 1;
+
+
+
+
+
+
+        return n * factorial(n - 1);
+    }
+
 }
